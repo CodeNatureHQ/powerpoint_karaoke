@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create vite@latest . -- --template react)",
+      "Bash(npm create vite@latest powerpoint-karaoke -- --template react)",
+      "Bash(npm install)",
+      "Bash(npm install framer-motion)",
+      "Bash(npm install -D tailwindcss @tailwindcss/vite)",
+      "Bash(npx vite build)",
+      "Bash(timeout 5 npx vite --host)",
+      "Bash(npm install recharts)"
+    ],
+    "additionalDirectories": [
+      "/Users/rmaas/Development/Personal/powerpoint_karaoke/powerpoint-karaoke"
+    ]
+  }
+}
