@@ -1,19 +1,32 @@
-// Unsplash images via their free image service (no API key needed)
-// Images are intentionally mismatched with slide content for maximum absurdity
+// Each presentation has a unique color theme and varied slide layouts
+// Layouts: "two-col" (bullets + visual), "image-full" (full-width image behind),
+//          "big-number" (large stat + text), "section" (section divider),
+//          "chart-focus" (chart is hero), "quote" (large quote style)
 
 const presentations = [
   {
     id: 1,
     title: "Warum Tauben die wahren Manager der Innenstadt sind",
     subtitle: "Eine ornithologische Führungsanalyse",
+    theme: {
+      accent: "#a855f7",
+      accentAlt: "#7c3aed",
+      bg: "from-violet-950/80 to-indigo-950/80",
+      titleBg: "from-violet-600/40 to-indigo-600/40",
+      border: "border-violet-500/20",
+      bullet: "bg-violet-400",
+      progress: "from-violet-500 to-indigo-500",
+    },
     slides: [
       {
         title: "Agenda",
+        layout: "two-col",
         bullets: [
           "Die urbane Taube: Ein Führungsprofil",
           "Strategische Positionierung auf dem Marktplatz",
           "Ressourcenverteilung: Brotkrumen und Budgets",
           "Teamdynamik im Schwarm",
+          "Change Management: Wenn der Bäcker schließt",
         ],
         type: "agenda",
         image: {
@@ -23,6 +36,7 @@ const presentations = [
       },
       {
         title: "Das Profil einer Führungstaube",
+        layout: "image-full",
         bullets: [
           "360°-Blick auf die Gesamtsituation (buchstäblich)",
           "Stressresistenz: Bleibt ruhig, selbst bei Kindern mit Eis",
@@ -37,10 +51,10 @@ const presentations = [
       },
       {
         title: "Strategische Positionierung",
+        layout: "chart-focus",
         bullets: [
           "Immer am Point-of-Sale (Bäckerei, Marktstand)",
           "First-Mover-Advantage bei herabfallenden Pommes",
-          "Exzellente Standortanalyse: Bankdächer, Brücken, Statuen",
         ],
         type: "content",
         chart: {
@@ -57,6 +71,7 @@ const presentations = [
       },
       {
         title: "Ressourcenmanagement",
+        layout: "two-col",
         bullets: [
           "Dezentrale Beschaffung – jeder pickt, was er findet",
           "Zero-Waste-Strategie: Alles wird verwertet",
@@ -76,7 +91,14 @@ const presentations = [
         },
       },
       {
+        title: "»Flache Hierarchien sind kein Buzzword – wir haben buchstäblich kein Organigramm.«",
+        subtitle: "– Alpha-Taube, Marktplatz Süd",
+        layout: "quote",
+        type: "content",
+      },
+      {
         title: "Teamdynamik im Schwarm",
+        layout: "two-col",
         bullets: [
           "Flache Hierarchien (maximal 1 Alpha-Taube)",
           "Agile Methoden: Sprint, Pause, Sprint",
@@ -89,10 +111,58 @@ const presentations = [
         },
       },
       {
+        title: "Reaktionszeit",
+        layout: "big-number",
+        bigNumber: "4 Sek.",
+        bigNumberSub: "Durchschnittliche Reaktionszeit der Taube bei Nahrungsquellen-Pivot",
+        bullets: [
+          "Spatzen: 12 Sekunden",
+          "Krähen: 25 Sekunden",
+          "DAX-Konzern: 18.000 Sekunden",
+        ],
+        type: "content",
+      },
+      {
+        title: "Risikobewertung & Compliance",
+        layout: "chart-focus",
+        bullets: [
+          "Compliance: Keine Regeln, keine Verstöße",
+        ],
+        type: "content",
+        chart: {
+          type: "bar",
+          title: "Risikoanalyse: Bedrohungslevel (1–100)",
+          data: [
+            { name: "Katzen", value: 78, fill: "#ef4444" },
+            { name: "Autos", value: 45, fill: "#f59e0b" },
+            { name: "Kinder", value: 32, fill: "#10b981" },
+            { name: "Regen", value: 3, fill: "#6366f1" },
+            { name: "Ordnungsamt", value: 2, fill: "#a855f7" },
+          ],
+        },
+      },
+      {
+        title: "Expansion ins Ausland",
+        layout: "image-full",
+        bullets: [
+          "Pariser Tauben: Benchmarking-Partner",
+          "Venezianische Tauben: Premium-Segment (Touristenfütterung)",
+          "New Yorker Tauben: Aggressive Wachstumsstrategie",
+          "Tokioter Tauben: Höchste Disziplin, kleinste Portionen",
+        ],
+        type: "content",
+        image: {
+          url: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600&h=400&fit=crop",
+          caption: "Internationales Tauben-Summit 2024",
+        },
+      },
+      {
         title: "Fazit & Empfehlung",
+        layout: "two-col",
         bullets: [
           "Tauben sind die unterschätztesten Manager unserer Zeit",
           "Jedes Unternehmen braucht einen Chief Pigeon Officer",
+          "ROI einer Taube im Vorstand: Unbezahlbar",
           "Fragen? (Bitte nur gurren)",
         ],
         type: "conclusion",
@@ -107,25 +177,32 @@ const presentations = [
     id: 2,
     title: "Die geheime Ökonomie der Büroklammer",
     subtitle: "Warum die Büroklammer das wahre Zahlungsmittel der Zukunft ist",
+    theme: {
+      accent: "#f59e0b",
+      accentAlt: "#d97706",
+      bg: "from-amber-950/80 to-orange-950/80",
+      titleBg: "from-amber-600/40 to-orange-600/40",
+      border: "border-amber-500/20",
+      bullet: "bg-amber-400",
+      progress: "from-amber-500 to-orange-500",
+    },
     slides: [
       {
-        title: "Die Büroklammer – Ein übersehener Wirtschaftsfaktor",
+        title: "37 Mrd.",
+        layout: "big-number",
+        bigNumber: "37 Mrd.",
+        bigNumberSub: "Büroklammern werden jährlich produziert. Wo gehen sie hin?",
         bullets: [
-          "Weltweite Produktion: 37 Milliarden Stück pro Jahr (ungefähr)",
           "Marktvolumen: Unberechenbar, da viele im Sofa verschwinden",
           "Status: Offizielles Tauschmittel in mindestens 3 Büros",
         ],
         type: "content",
-        image: {
-          url: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop",
-          caption: "Börsenkurs der Büroklammer (Echtzeit)",
-        },
       },
       {
         title: "Historischer Kontext",
+        layout: "chart-focus",
         bullets: [
           "1899: Erfindung der modernen Büroklammer",
-          "1987: Erste dokumentierte Büroklammer-Währung in der Buchhaltung",
           "2024: NFT-Büroklammern – die Zukunft?",
         ],
         type: "content",
@@ -145,6 +222,7 @@ const presentations = [
       },
       {
         title: "Der Büroklammer-Kreislauf",
+        layout: "two-col",
         bullets: [
           "Phase 1: Kauf im 100er-Pack",
           "Phase 2: 3 werden benutzt, 97 verschwinden",
@@ -154,23 +232,21 @@ const presentations = [
         type: "content",
         chart: {
           type: "pie",
-          title: "Verbleib einer 100er-Packung Büroklammern",
+          title: "Verbleib einer 100er-Packung",
           data: [
-            { name: "Bestimmungsgemäß", value: 3, fill: "#a855f7" },
+            { name: "Bestimmungsgemäß", value: 3, fill: "#f59e0b" },
             { name: "Im Sofa", value: 27, fill: "#ec4899" },
-            { name: "Hosentasche", value: 18, fill: "#f59e0b" },
+            { name: "Hosentasche", value: 18, fill: "#a855f7" },
             { name: "Schublade", value: 22, fill: "#10b981" },
-            { name: "Parallel-universum", value: 30, fill: "#6366f1" },
+            { name: "Paralleluniversum", value: 30, fill: "#6366f1" },
           ],
         },
       },
       {
         title: "Büroklammer vs. Bitcoin",
+        layout: "chart-focus",
         bullets: [
-          "Büroklammer: physisch, real, biegbar",
-          "Bitcoin: digital, volatil, nicht biegbar",
           "Klarer Sieger: Büroklammer",
-          "Bonus: Man kann aus Büroklammern Skulpturen bauen",
         ],
         type: "content",
         chart: {
@@ -185,7 +261,49 @@ const presentations = [
         },
       },
       {
+        title: "»Wer Büroklammern biegt, denkt nach – wissenschaftlich belegt.«",
+        subtitle: "– Prof. Dr. Klammer, Institut für Bürobedarf-Psychologie",
+        layout: "quote",
+        type: "content",
+      },
+      {
+        title: "Die Psychologie der Büroklammer",
+        layout: "image-full",
+        bullets: [
+          "Büroklammerbieger sind 23% produktiver (Quelle: keine)",
+          "Spirale = Stress, Herz = Verliebt, Gerade = Langweile",
+          "Die Form der Biegung verrät den Gemütszustand",
+        ],
+        type: "content",
+        image: {
+          url: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=600&h=400&fit=crop",
+          caption: "Büroklammer-Kunst: Emotionale Verarbeitung des Q3-Reports",
+        },
+      },
+      {
+        title: "Globale Klammer-Diplomatie",
+        layout: "two-col",
+        bullets: [
+          "Norwegen: Büroklammer als Nationalsymbol des Widerstands",
+          "Japan: Origami-Klammern als Kunstform anerkannt",
+          "USA: Büroklammerverbrauch korreliert mit BIP",
+        ],
+        type: "content",
+        chart: {
+          type: "bar",
+          title: "Büroklammerverbrauch pro Kopf/Jahr",
+          data: [
+            { name: "Deutschland", value: 1350, fill: "#f59e0b" },
+            { name: "Japan", value: 980, fill: "#ec4899" },
+            { name: "USA", value: 2100, fill: "#a855f7" },
+            { name: "Norwegen", value: 870, fill: "#10b981" },
+            { name: "Antarktis", value: 2, fill: "#6366f1" },
+          ],
+        },
+      },
+      {
         title: "Investitionsstrategie",
+        layout: "two-col",
         bullets: [
           "Diversifizierung: Silber, Gold, Bunt, XXL-Format",
           "Lagerung: Magnetische Schale auf dem Schreibtisch",
@@ -198,10 +316,32 @@ const presentations = [
         },
       },
       {
+        title: "Zukunftsvision: Klammer 2.0",
+        layout: "chart-focus",
+        bullets: [
+          "Smart-Klammer mit Bluetooth und GPS-Tracking",
+          "Büroklammer-Abo-Modell (monatlich frische Klammern)",
+        ],
+        type: "content",
+        chart: {
+          type: "line",
+          title: "Prognostizierter Smart-Klammer-Absatz (in Mio.)",
+          data: [
+            { name: "2025", value: 0.1 },
+            { name: "2026", value: 2 },
+            { name: "2027", value: 15 },
+            { name: "2028", value: 89 },
+            { name: "2030", value: 340 },
+          ],
+        },
+      },
+      {
         title: "Zusammenfassung",
+        layout: "two-col",
         bullets: [
           "Die Büroklammer ist die stabilste Währung der Welt",
           "Investieren Sie jetzt, bevor es alle tun",
+          "Die Zukunft gehört den Klammerbewussten",
           "Kontakt: klammerboerse@buero.fake",
         ],
         type: "conclusion",
@@ -216,9 +356,19 @@ const presentations = [
     id: 3,
     title: "Kartoffeln als Zukunftstechnologie",
     subtitle: "Vom Acker ins Silicon Valley",
+    theme: {
+      accent: "#10b981",
+      accentAlt: "#059669",
+      bg: "from-emerald-950/80 to-teal-950/80",
+      titleBg: "from-emerald-600/40 to-teal-600/40",
+      border: "border-emerald-500/20",
+      bullet: "bg-emerald-400",
+      progress: "from-emerald-500 to-teal-500",
+    },
     slides: [
       {
         title: "Die Kartoffel: Mehr als nur Beilage",
+        layout: "image-full",
         bullets: [
           "4.000 Sorten weltweit – mehr als Programmiersprachen",
           "Wächst unter der Erde – wie gute Serverräume",
@@ -232,27 +382,38 @@ const presentations = [
       },
       {
         title: "Kartoffel-Computing",
+        layout: "chart-focus",
         bullets: [
           "1 Kartoffel ≈ 0,5 Volt (wissenschaftlich bestätigt)",
           "457 Kartoffeln = 1 Laptop-Ladung (theoretisch)",
-          "Erneuerbare Energie: Einfach neue Kartoffeln pflanzen",
-          "Kartoffel-Cloud: Dezentrale Datenspeicherung im Keller",
         ],
         type: "content",
         chart: {
           type: "bar",
           title: "Energieoutput nach Kartoffelsorte (in Volt)",
           data: [
-            { name: "Festkochend", value: 0.52, fill: "#a855f7" },
-            { name: "Mehlig", value: 0.48, fill: "#ec4899" },
+            { name: "Festkochend", value: 0.52, fill: "#10b981" },
+            { name: "Mehlig", value: 0.48, fill: "#a855f7" },
             { name: "Süßkartoffel", value: 0.61, fill: "#f59e0b" },
-            { name: "Pommes-Form", value: 0.03, fill: "#10b981" },
-            { name: "Gnocchi", value: 0.00, fill: "#6366f1" },
+            { name: "Pommes-Form", value: 0.03, fill: "#ec4899" },
+            { name: "Gnocchi", value: 0.0, fill: "#6366f1" },
           ],
         },
       },
       {
+        title: "0,5 Volt",
+        layout: "big-number",
+        bigNumber: "0,5 V",
+        bigNumberSub: "Energieoutput einer einzelnen Kartoffel – mehr als mancher Mitarbeiter am Montag",
+        bullets: [
+          "457 Kartoffeln = 1 Laptop-Ladung",
+          "Erneuerbare Energie: Einfach neue pflanzen",
+        ],
+        type: "content",
+      },
+      {
         title: "Kartoffel-basierte KI",
+        layout: "two-col",
         bullets: [
           "Stärkebasierte neuronale Netze",
           "Training mit Kartoffeldaten (Größe, Gewicht, Augenanzahl)",
@@ -266,9 +427,8 @@ const presentations = [
       },
       {
         title: "Kartoffel-Blockchain",
+        layout: "chart-focus",
         bullets: [
-          "Jede Kartoffel bekommt eine eindeutige ID",
-          "Transaktionen: Kartoffel A → Kartoffel B (Tauschhandel)",
           "Proof of Steak: Validierung durch Bratkartoffeln",
         ],
         type: "content",
@@ -287,30 +447,79 @@ const presentations = [
         },
       },
       {
-        title: "Case Study: Smart Kartoffel",
+        title: "»Bin festkochend und suche neue Herausforderungen.«",
+        subtitle: "– Profil auf KartoffelNet (LinkedIn für Knollen)",
+        layout: "quote",
+        type: "content",
+      },
+      {
+        title: "Kartoffel als Baumaterial",
+        layout: "two-col",
         bullets: [
-          "IoT-Sensor im Kartoffelsack",
-          "Echtzeit-Monitoring: Feuchtigkeit, Temperatur, Keimstatus",
-          "Automatischer Alert: »Ihre Kartoffel keimt – bitte handeln!«",
+          "Kartoffelstärke-Beton: 40% leichter als herkömmlich",
+          "Wände aus Kartoffelpüree – natürliche Isolierung",
+          "Im Brandfall: Angenehmer Bratkartoffelgeruch",
+        ],
+        type: "content",
+        chart: {
+          type: "bar",
+          title: "Kartoffelbeton vs. Standard (kg/m²)",
+          data: [
+            { name: "Druckfest.", kartoffel: 45, standard: 60 },
+            { name: "Isolierung", kartoffel: 92, standard: 55 },
+            { name: "Geruch", kartoffel: 100, standard: 2 },
+            { name: "Essbarkeit", kartoffel: 85, standard: 0 },
+          ],
+        },
+      },
+      {
+        title: "Kartoffel im Weltraum",
+        layout: "image-full",
+        bullets: [
+          "NASA-Studie: Kartoffeln wachsen auf dem Mars",
+          "Kartoffel als Astronautennahrung: Kompakt, vielseitig, tröstlich",
+          "SpudX-Mission: Erste autonome Kartoffel in der Umlaufbahn",
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop",
-          caption: "Innenleben einer Smart Kartoffel (Querschnitt)",
+          url: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600&h=400&fit=crop",
+          caption: "SpudX-1 beim Start (Künstlerische Darstellung)",
+        },
+      },
+      {
+        title: "Marktanalyse & Wettbewerb",
+        layout: "two-col",
+        bullets: [
+          "Größter Konkurrent: Die Süßkartoffel (Hipster-Segment)",
+          "Reis: Günstig, aber langweilig",
+          "Kartoffel: Einziges Nahrungsmittel mit Tech-Potenzial",
+        ],
+        type: "content",
+        chart: {
+          type: "pie",
+          title: "Tech-Readiness nach Nahrungsmittel",
+          data: [
+            { name: "Kartoffel", value: 45, fill: "#10b981" },
+            { name: "Süßkartoffel", value: 20, fill: "#ec4899" },
+            { name: "Reis", value: 5, fill: "#f59e0b" },
+            { name: "Pasta", value: 3, fill: "#a855f7" },
+            { name: "Toast", value: 27, fill: "#6366f1" },
+          ],
         },
       },
       {
         title: "Ausblick 2030",
+        layout: "two-col",
         bullets: [
-          "Kartoffel-Powered Data Centers",
-          "Erste Kartoffel im Weltraum (SpudX-Mission)",
-          "IPO der »Kartoffel AG« erwartet",
+          "Kartoffel-Powered Data Centers weltweit",
+          "IPO der »Kartoffel AG« (Bewertung: 3 Billionen Knollen)",
+          "Kartoffel als offizielle Weltwährung im Gespräch",
           "Fragen? Kritik? Kartoffel?",
         ],
         type: "conclusion",
         image: {
-          url: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600&h=400&fit=crop",
-          caption: "SpudX-1 beim Start (Künstlerische Darstellung)",
+          url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop",
+          caption: "Hauptquartier der Kartoffel AG (Vision 2030)",
         },
       },
     ],
@@ -319,13 +528,31 @@ const presentations = [
     id: 4,
     title: "Synergiepotenziale im privaten Wäschemanagement",
     subtitle: "Optimierung textiler Workflows im häuslichen Umfeld",
+    theme: {
+      accent: "#ec4899",
+      accentAlt: "#db2777",
+      bg: "from-pink-950/80 to-rose-950/80",
+      titleBg: "from-pink-600/40 to-rose-600/40",
+      border: "border-pink-500/20",
+      bullet: "bg-pink-400",
+      progress: "from-pink-500 to-rose-500",
+    },
     slides: [
       {
-        title: "Problemstellung",
+        title: "67%",
+        layout: "big-number",
+        bigNumber: "67%",
+        bigNumberSub: "aller Socken gehen beim Waschen verloren. Wohin verschwinden sie?",
         bullets: [
-          "67% aller Socken gehen beim Waschen verloren",
           "Durchschnittliche Wäscheberg-Verweilzeit: 4,7 Tage",
           "Bügelstau: Das unterschätzte Risiko",
+        ],
+        type: "content",
+      },
+      {
+        title: "Verbleib von Socken",
+        layout: "chart-focus",
+        bullets: [
           "Die Frage: Kann man das optimieren?",
         ],
         type: "content",
@@ -343,6 +570,7 @@ const presentations = [
       },
       {
         title: "Ist-Analyse: Der typische Wäscheprozess",
+        layout: "image-full",
         bullets: [
           "Sammeln → Vergessen → Riechen → Waschen → Trocknen → Knüllen → Stapeln",
           "Durchlaufzeit: 1–3 Wochen",
@@ -356,10 +584,9 @@ const presentations = [
       },
       {
         title: "Benchmarking: Wer wäscht am besten?",
+        layout: "chart-focus",
         bullets: [
           "Oma: Goldstandard (aber nicht skalierbar)",
-          "WG: Agil, aber fehleranfällig",
-          "Single-Haushalt: Lean, aber schmutzig",
           "Hotel: Industriestandard – unser Vorbild?",
         ],
         type: "content",
@@ -367,8 +594,8 @@ const presentations = [
           type: "bar",
           title: "Wäsche-Qualitätsindex nach Haushalt",
           data: [
-            { name: "Oma", value: 98, fill: "#a855f7" },
-            { name: "Hotel", value: 85, fill: "#ec4899" },
+            { name: "Oma", value: 98, fill: "#ec4899" },
+            { name: "Hotel", value: 85, fill: "#a855f7" },
             { name: "WG", value: 34, fill: "#f59e0b" },
             { name: "Single", value: 22, fill: "#10b981" },
             { name: "Student", value: 7, fill: "#6366f1" },
@@ -376,7 +603,14 @@ const presentations = [
         },
       },
       {
+        title: "»Wenn eine Socke verschwindet – existiert sie noch?«",
+        subtitle: "– Schrödingers Socke: Gleichzeitig in der Trommel und nicht",
+        layout: "quote",
+        type: "content",
+      },
+      {
         title: "Optimierungsansätze",
+        layout: "two-col",
         bullets: [
           "Socken-Pairing vor dem Waschen (Pre-Sorting)",
           "Farbcodierte Wäschekörbe (Kanban-System)",
@@ -390,12 +624,32 @@ const presentations = [
         },
       },
       {
-        title: "KPI-Dashboard für Wäsche",
+        title: "Der Wäsche-Bot",
+        layout: "two-col",
         bullets: [
-          "Socken-Verlustrate < 5%",
-          "Wäsche-Zykluszeit < 48h",
-          "Bügelquote: 100% (ambitioniert, aber nötig)",
-          "Kundenzufriedenheit (Eigenrating): ≥ 4/5 Sterne",
+          "Roboterarm sortiert, faltet und bügelt autonom",
+          "KI erkennt Sockenpaare mit 73% Genauigkeit",
+          "Preis: Nur 14.999 € (weniger als 200 Jahre Waschsalon)",
+        ],
+        type: "content",
+        chart: {
+          type: "line",
+          title: "Wäsche-Bot: Faltgenauigkeit über Zeit (%)",
+          data: [
+            { name: "Tag 1", value: 12 },
+            { name: "Woche 1", value: 34 },
+            { name: "Monat 1", value: 58 },
+            { name: "Monat 6", value: 73 },
+            { name: "Jahr 1", value: 74 },
+            { name: "Jahr 2", value: 73 },
+          ],
+        },
+      },
+      {
+        title: "KPI-Dashboard für Wäsche",
+        layout: "chart-focus",
+        bullets: [
+          "Alle KPIs deutlich unter Zielwert",
         ],
         type: "content",
         chart: {
@@ -410,24 +664,23 @@ const presentations = [
         },
       },
       {
-        title: "Implementierungsplan",
+        title: "38 Jahre",
+        layout: "big-number",
+        bigNumber: "38 J.",
+        bigNumberSub: "bis zum Break-Even unserer Wäsche-Optimierung. Aber der emotionale Gewinn ist unbezahlbar.",
         bullets: [
-          "Q1: Wäschekörbe kaufen",
-          "Q2: Familienmitglieder schulen",
-          "Q3: Pilotprojekt »Socken-Tracker«",
-          "Q4: Review und Retrospektive",
+          "Investition: 47 € (Wäschekörbe, Etiketten, Stoppuhr)",
+          "Einsparung: 12 Minuten pro Woche weniger Sockensuche",
         ],
         type: "content",
-        image: {
-          url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-          caption: "Strategieplanung in der Waschküche",
-        },
       },
       {
         title: "Fazit",
+        layout: "two-col",
         bullets: [
           "Wäschemanagement ist die letzte unoptimierte Frontier",
           "Wer seine Wäsche im Griff hat, hat sein Leben im Griff",
+          "Die Socke von heute ist die Währung von morgen",
           "Vielen Dank – und bitte: faltet eure Wäsche.",
         ],
         type: "conclusion",
@@ -442,23 +695,30 @@ const presentations = [
     id: 5,
     title: "Strategische Fehler bei intergalaktischen Bewerbungsgesprächen",
     subtitle: "Wie man es in der Milchstraße NICHT macht",
+    theme: {
+      accent: "#6366f1",
+      accentAlt: "#4f46e5",
+      bg: "from-indigo-950/80 to-blue-950/80",
+      titleBg: "from-indigo-600/40 to-blue-600/40",
+      border: "border-indigo-500/20",
+      bullet: "bg-indigo-400",
+      progress: "from-indigo-500 to-blue-500",
+    },
     slides: [
       {
-        title: "Einleitung",
+        title: "89%",
+        layout: "big-number",
+        bigNumber: "89%",
+        bigNumberSub: "aller intergalaktischen Bewerber scheitern im Gespräch. Warum? Kulturelle Missverständnisse.",
         bullets: [
-          "Der intergalaktische Arbeitsmarkt wächst",
           "73 Millionen offene Stellen auf der Erde allein",
-          "Doch: 89% aller Bewerber scheitern im Gespräch",
-          "Warum? Kulturelle Missverständnisse.",
+          "Der intergalaktische Arbeitsmarkt wächst",
         ],
         type: "content",
-        image: {
-          url: "https://images.unsplash.com/photo-1462332420958-a05d1e002413?w=600&h=400&fit=crop",
-          caption: "Der intergalaktische Arbeitsmarkt (Überblick)",
-        },
       },
       {
         title: "Fehler #1: Falscher Händedruck",
+        layout: "image-full",
         bullets: [
           "Bei Klingonen: Zu sanft = Beleidigung",
           "Bei Vulkaniern: Bitte nur den Vulkanier-Gruß",
@@ -473,26 +733,27 @@ const presentations = [
       },
       {
         title: "Fehler #2: Unpassende Kleidung",
+        layout: "chart-focus",
         bullets: [
           "Raumanzug: Overdressed (außer auf der ISS)",
-          "Hawaiihemd: Nur akzeptabel auf Risa",
-          "Gar nichts: Auf einigen Planeten normal, auf den meisten nicht",
+          "Gar nichts: Auf einigen Planeten normal",
         ],
         type: "content",
         chart: {
           type: "bar",
           title: "Dresscode-Akzeptanz nach Planet",
           data: [
-            { name: "Anzug", value: 72, fill: "#a855f7" },
+            { name: "Anzug", value: 72, fill: "#6366f1" },
             { name: "Raumanzug", value: 45, fill: "#ec4899" },
             { name: "Hawaii", value: 23, fill: "#f59e0b" },
             { name: "Toga", value: 56, fill: "#10b981" },
-            { name: "Nichts", value: 8, fill: "#6366f1" },
+            { name: "Nichts", value: 8, fill: "#a855f7" },
           ],
         },
       },
       {
         title: "Fehler #3: Lebenslauf-Lügen",
+        layout: "two-col",
         bullets: [
           "»Ich spreche fließend Klingonisch« – wird getestet!",
           "»Erfahrung mit Lichtgeschwindigkeit« – Referenzen werden geprüft",
@@ -506,18 +767,18 @@ const presentations = [
       },
       {
         title: "Fehler #4: Gehaltsverhandlung",
+        layout: "two-col",
         bullets: [
           "Auf Ferenginar: Immer mehr verlangen (Erwerbsregel Nr. 1)",
           "Auf Vulkan: Logisches Argument schlägt Emotion",
-          "Auf der Erde: Einfach googeln, was andere verdienen",
           "Im Borg-Kollektiv: Gehalt ist irrelevant. Widerstand auch.",
         ],
         type: "content",
         chart: {
           type: "bar",
-          title: "Durchschnittsgehalt nach Galaxie-Quadrant (in Latinum)",
+          title: "Durchschnittsgehalt nach Quadrant (in Latinum)",
           data: [
-            { name: "Alpha", value: 340, fill: "#a855f7" },
+            { name: "Alpha", value: 340, fill: "#6366f1" },
             { name: "Beta", value: 280, fill: "#ec4899" },
             { name: "Gamma", value: 520, fill: "#f59e0b" },
             { name: "Delta", value: 0, fill: "#10b981" },
@@ -525,20 +786,69 @@ const presentations = [
         },
       },
       {
-        title: "Fehler #5: Die falsche Abschlussfrage",
+        title: "»Gehalt ist irrelevant. Widerstand auch.«",
+        subtitle: "– Borg-Kollektiv, Personalabteilung",
+        layout: "quote",
+        type: "content",
+      },
+      {
+        title: "Kulturelle Fettnäpfchen",
+        layout: "two-col",
         bullets: [
-          "NICHT fragen: »Wann kann ich Urlaub nehmen?«",
-          "NICHT fragen: »Muss ich wirklich auf diesem Planeten wohnen?«",
-          "BESSER: »Wie ist die Work-Life-Orbit-Balance?«",
+          "Auf Kronos: Nie das Essen ablehnen (auch wenn es lebt)",
+          "Auf Betazed: Lügen zwecklos – Telepathen merken alles",
+          "Auf Risa: Alles zu locker nehmen – es ist ein Vorstellungsgespräch",
+        ],
+        type: "content",
+        chart: {
+          type: "pie",
+          title: "Häufigste kulturelle Fettnäpfchen",
+          data: [
+            { name: "Falsches Essen", value: 32, fill: "#6366f1" },
+            { name: "Begrüßung", value: 28, fill: "#ec4899" },
+            { name: "Augenkontakt", value: 18, fill: "#f59e0b" },
+            { name: "Zeitverständnis", value: 15, fill: "#10b981" },
+            { name: "Gravitationsfehler", value: 7, fill: "#a855f7" },
+          ],
+        },
+      },
+      {
+        title: "Best Practices",
+        layout: "image-full",
+        bullets: [
+          "Vorher die Atmosphäre des Planeten prüfen (wörtlich)",
+          "Universalübersetzer immer aufgeladen lassen",
+          "Backup-Outfit für unerwartete Gravitationsverhältnisse",
+          "Referenzen aus mindestens 2 Sonnensystemen mitbringen",
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?w=600&h=400&fit=crop",
-          caption: "Work-Life-Orbit-Balance: Zufriedene Mitarbeiter im Quadrant Gamma",
+          url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop",
+          caption: "Vorbereitung auf das Interview (Planeten-Recherche)",
+        },
+      },
+      {
+        title: "Erfolgsquoten",
+        layout: "chart-focus",
+        bullets: [
+          "Dieser Vortrag: 47% Erfolgsquote (unbestätigt)",
+        ],
+        type: "content",
+        chart: {
+          type: "bar",
+          title: "Erfolgsquote nach Vorbereitungsmethode (%)",
+          data: [
+            { name: "Keine", value: 3, fill: "#ef4444" },
+            { name: "Wikipedia", value: 12, fill: "#f59e0b" },
+            { name: "Dieser Vortrag", value: 47, fill: "#6366f1" },
+            { name: "Alien-Coach", value: 89, fill: "#10b981" },
+            { name: "Bestechung", value: 94, fill: "#a855f7" },
+          ],
         },
       },
       {
         title: "Zusammenfassung",
+        layout: "two-col",
         bullets: [
           "Recherche ist alles – auch intergalaktisch",
           "Kulturelle Sensibilität > technische Skills",

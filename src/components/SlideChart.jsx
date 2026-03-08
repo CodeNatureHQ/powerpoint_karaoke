@@ -24,7 +24,7 @@ const tooltipStyle = {
   fontSize: "13px",
 };
 
-function SlideBarChart({ chart }) {
+function SlideBarChart({ chart, large }) {
   // Detect if chart has two data keys (comparison chart like ist/soll)
   const sampleItem = chart.data[0];
   const keys = Object.keys(sampleItem).filter((k) => k !== "name" && k !== "fill");
@@ -32,7 +32,7 @@ function SlideBarChart({ chart }) {
 
   if (isComparison) {
     return (
-      <ResponsiveContainer width="100%" height={220}>
+      <ResponsiveContainer width="100%" height={large ? 320 : 220}>
         <BarChart data={chart.data} barGap={4}>
           <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
           <XAxis dataKey="name" tick={{ fill: "#9ca3af", fontSize: 12 }} />
@@ -47,7 +47,7 @@ function SlideBarChart({ chart }) {
   }
 
   return (
-    <ResponsiveContainer width="100%" height={220}>
+    <ResponsiveContainer width="100%" height={large ? 320 : 220}>
       <BarChart data={chart.data}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
         <XAxis dataKey="name" tick={{ fill: "#9ca3af", fontSize: 12 }} />
@@ -63,16 +63,18 @@ function SlideBarChart({ chart }) {
   );
 }
 
-function SlidePieChart({ chart }) {
+function SlidePieChart({ chart, large }) {
+  const radius = large ? 120 : 90;
+  const inner = large ? 55 : 40;
   return (
-    <ResponsiveContainer width="100%" height={240}>
+    <ResponsiveContainer width="100%" height={large ? 340 : 240}>
       <PieChart>
         <Pie
           data={chart.data}
           cx="50%"
           cy="50%"
-          outerRadius={90}
-          innerRadius={40}
+          outerRadius={radius}
+          innerRadius={inner}
           dataKey="value"
           label={({ name, percent }) =>
             `${name} ${(percent * 100).toFixed(0)}%`
@@ -91,9 +93,9 @@ function SlidePieChart({ chart }) {
   );
 }
 
-function SlideLineChart({ chart }) {
+function SlideLineChart({ chart, large }) {
   return (
-    <ResponsiveContainer width="100%" height={220}>
+    <ResponsiveContainer width="100%" height={large ? 320 : 220}>
       <LineChart data={chart.data}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
         <XAxis dataKey="name" tick={{ fill: "#9ca3af", fontSize: 12 }} />
@@ -112,15 +114,15 @@ function SlideLineChart({ chart }) {
   );
 }
 
-export default function SlideChart({ chart }) {
+export default function SlideChart({ chart, large = false }) {
   return (
-    <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10">
-      <p className="text-sm font-medium text-gray-300 mb-3 text-center">
+    <div className={`${large ? "mt-4" : "mt-6"} p-4 rounded-2xl bg-white/5 border border-white/10`}>
+      <p className={`${large ? "text-base" : "text-sm"} font-medium text-gray-300 mb-3 text-center`}>
         {chart.title}
       </p>
-      {chart.type === "bar" && <SlideBarChart chart={chart} />}
-      {chart.type === "pie" && <SlidePieChart chart={chart} />}
-      {chart.type === "line" && <SlideLineChart chart={chart} />}
+      {chart.type === "bar" && <SlideBarChart chart={chart} large={large} />}
+      {chart.type === "pie" && <SlidePieChart chart={chart} large={large} />}
+      {chart.type === "line" && <SlideLineChart chart={chart} large={large} />}
     </div>
   );
 }
