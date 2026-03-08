@@ -8,14 +8,11 @@ const presentations = [
     id: 1,
     title: "Warum Tauben die wahren Manager der Innenstadt sind",
     subtitle: "Eine ornithologische Führungsanalyse",
+    template: "corporate",
     theme: {
-      accent: "#a855f7",
-      accentAlt: "#7c3aed",
-      bg: "from-violet-950/80 to-indigo-950/80",
-      titleBg: "from-violet-600/40 to-indigo-600/40",
-      border: "border-violet-500/20",
-      bullet: "bg-violet-400",
-      progress: "from-violet-500 to-indigo-500",
+      accent: "#2563eb",
+      accentAlt: "#1d4ed8",
+      gradient: "from-blue-600 to-blue-800",
     },
     slides: [
       {
@@ -177,14 +174,11 @@ const presentations = [
     id: 2,
     title: "Die geheime Ökonomie der Büroklammer",
     subtitle: "Warum die Büroklammer das wahre Zahlungsmittel der Zukunft ist",
+    template: "sidebar",
     theme: {
-      accent: "#f59e0b",
-      accentAlt: "#d97706",
-      bg: "from-amber-950/80 to-orange-950/80",
-      titleBg: "from-amber-600/40 to-orange-600/40",
-      border: "border-amber-500/20",
-      bullet: "bg-amber-400",
-      progress: "from-amber-500 to-orange-500",
+      accent: "#d97706",
+      accentAlt: "#b45309",
+      gradient: "from-amber-600 to-orange-700",
     },
     slides: [
       {
@@ -356,14 +350,11 @@ const presentations = [
     id: 3,
     title: "Kartoffeln als Zukunftstechnologie",
     subtitle: "Vom Acker ins Silicon Valley",
+    template: "gradient",
     theme: {
       accent: "#10b981",
       accentAlt: "#059669",
-      bg: "from-emerald-950/80 to-teal-950/80",
-      titleBg: "from-emerald-600/40 to-teal-600/40",
-      border: "border-emerald-500/20",
-      bullet: "bg-emerald-400",
-      progress: "from-emerald-500 to-teal-500",
+      gradient: "from-emerald-700 via-teal-700 to-cyan-800",
     },
     slides: [
       {
@@ -528,14 +519,11 @@ const presentations = [
     id: 4,
     title: "Synergiepotenziale im privaten Wäschemanagement",
     subtitle: "Optimierung textiler Workflows im häuslichen Umfeld",
+    template: "minimal",
     theme: {
-      accent: "#ec4899",
-      accentAlt: "#db2777",
-      bg: "from-pink-950/80 to-rose-950/80",
-      titleBg: "from-pink-600/40 to-rose-600/40",
-      border: "border-pink-500/20",
-      bullet: "bg-pink-400",
-      progress: "from-pink-500 to-rose-500",
+      accent: "#be185d",
+      accentAlt: "#9d174d",
+      gradient: "from-pink-600 to-rose-700",
     },
     slides: [
       {
@@ -695,14 +683,11 @@ const presentations = [
     id: 5,
     title: "Strategische Fehler bei intergalaktischen Bewerbungsgesprächen",
     subtitle: "Wie man es in der Milchstraße NICHT macht",
+    template: "dark",
     theme: {
-      accent: "#6366f1",
-      accentAlt: "#4f46e5",
-      bg: "from-indigo-950/80 to-blue-950/80",
-      titleBg: "from-indigo-600/40 to-blue-600/40",
-      border: "border-indigo-500/20",
-      bullet: "bg-indigo-400",
-      progress: "from-indigo-500 to-blue-500",
+      accent: "#818cf8",
+      accentAlt: "#6366f1",
+      gradient: "from-indigo-900 to-slate-900",
     },
     slides: [
       {
@@ -867,14 +852,11 @@ const presentations = [
     id: 6,
     title: "Projektmanagement auf dem Todesstern",
     subtitle: "Warum das Imperium dringend einen Scrum Master braucht",
+    template: "bold-header",
     theme: {
-      accent: "#ef4444",
-      accentAlt: "#dc2626",
-      bg: "from-red-950/80 to-gray-950/80",
-      titleBg: "from-red-600/40 to-gray-800/40",
-      border: "border-red-500/20",
-      bullet: "bg-red-400",
-      progress: "from-red-500 to-red-800",
+      accent: "#dc2626",
+      accentAlt: "#b91c1c",
+      gradient: "from-red-700 to-gray-900",
     },
     slides: [
       {
