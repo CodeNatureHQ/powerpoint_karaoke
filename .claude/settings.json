@@ -8,7 +8,9 @@
       "Bash(npm install -D tailwindcss @tailwindcss/vite)",
       "Bash(npx vite build)",
       "Bash(timeout 5 npx vite --host)",
-      "Bash(npm install recharts)"
+      "Bash(npm install recharts)",
+      "Bash(npm install -D gh-pages)",
+      "Bash(git -C /Users/rmaas/Development/Personal/powerpoint_karaoke status)"
     ],
     "additionalDirectories": [
       "/Users/rmaas/Development/Personal/powerpoint_karaoke/powerpoint-karaoke"
