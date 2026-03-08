@@ -863,6 +863,178 @@ const presentations = [
       },
     ],
   },
+  {
+    id: 6,
+    title: "Projektmanagement auf dem Todesstern",
+    subtitle: "Warum das Imperium dringend einen Scrum Master braucht",
+    theme: {
+      accent: "#ef4444",
+      accentAlt: "#dc2626",
+      bg: "from-red-950/80 to-gray-950/80",
+      titleBg: "from-red-600/40 to-gray-800/40",
+      border: "border-red-500/20",
+      bullet: "bg-red-400",
+      progress: "from-red-500 to-red-800",
+    },
+    slides: [
+      {
+        title: "2 Todessterne",
+        layout: "big-number",
+        bigNumber: "2",
+        bigNumberSub: "Todessterne gebaut. 2 zerstört. 0 aus den Fehlern gelernt. Klassisches Wasserfall-Problem.",
+        bullets: [
+          "Budget: 1 Trilliarde Imperiale Credits",
+          "Bauzeit: 20 Jahre (ohne agile Methoden)",
+        ],
+        type: "content",
+      },
+      {
+        title: "Projekthistorie",
+        layout: "chart-focus",
+        bullets: [
+          "Todesstern I: Lüftungsschacht-Bug nie gefixt",
+          "Todesstern II: In der Beta-Phase zerstört",
+        ],
+        type: "content",
+        chart: {
+          type: "bar",
+          title: "Imperiale Großprojekte: Budget vs. Ergebnis",
+          data: [
+            { name: "Todesstern I", budget: 100, erfolg: 3 },
+            { name: "Todesstern II", budget: 150, erfolg: 1 },
+            { name: "Starkiller", budget: 200, erfolg: 2 },
+            { name: "Star Destroyer", budget: 30, erfolg: 78 },
+          ],
+        },
+      },
+      {
+        title: "»Ich finde Ihren Mangel an Agilität beklagenswert.«",
+        subtitle: "– Darth Vader, Sprint Review #47",
+        layout: "quote",
+        type: "content",
+      },
+      {
+        title: "Der Lüftungsschacht: Eine Retrospektive",
+        layout: "image-full",
+        bullets: [
+          "Ticket #4857: »Thermischer Abzugsschacht ungesichert«",
+          "Priorität: Niedrig (Wer fliegt schon da rein?)",
+          "Status: Won't Fix → Wontfix → Todesstern explodiert",
+          "Lesson Learned: Jeder Bug ist ein potenzieller Exploit",
+        ],
+        type: "content",
+        image: {
+          url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
+          caption: "Sicherheitsanalyse des Lüftungsschachts (Querschnitt)",
+        },
+      },
+      {
+        title: "Die dunkle Seite des Wasserfalls",
+        layout: "two-col",
+        bullets: [
+          "20 Jahre Bauzeit ohne ein einziges User-Feedback",
+          "Kein MVP – direkt zum Planet-Zerstörer",
+          "Zero Testing: »Wozu testen? Wir haben die Macht.«",
+          "Stakeholder-Meeting nur mit Force-Choke",
+        ],
+        type: "content",
+        chart: {
+          type: "pie",
+          title: "Zeitverteilung im Todesstern-Projekt",
+          data: [
+            { name: "Planung", value: 5, fill: "#ef4444" },
+            { name: "Bau", value: 60, fill: "#6366f1" },
+            { name: "Meetings", value: 20, fill: "#f59e0b" },
+            { name: "Force-Choke", value: 10, fill: "#a855f7" },
+            { name: "Testing", value: 5, fill: "#10b981" },
+          ],
+        },
+      },
+      {
+        title: "Mitarbeiterfluktuation",
+        layout: "chart-focus",
+        bullets: [
+          "Kündigungsgrund #1: Force-Choke durch Vorgesetzten",
+        ],
+        type: "content",
+        chart: {
+          type: "line",
+          title: "Mitarbeiterzufriedenheit im Imperium (1–10)",
+          data: [
+            { name: "Einstellung", value: 8 },
+            { name: "Woche 1", value: 7 },
+            { name: "Monat 1", value: 5 },
+            { name: "Erstes Meeting", value: 3 },
+            { name: "Erster Choke", value: 1 },
+            { name: "Resignation", value: 0.5 },
+          ],
+        },
+      },
+      {
+        title: "Scrum bei den Rebellen",
+        layout: "two-col",
+        bullets: [
+          "Kleine, cross-funktionale Teams (Luke, Han, Leia, Chewie)",
+          "Iteratives Vorgehen: Erst Pläne stehlen, dann angreifen",
+          "Daily Standup im Millennium Falken",
+          "Sprint-Ziel: Todesstern zerstören (erledigt in 1 Sprint)",
+        ],
+        type: "content",
+        image: {
+          url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop",
+          caption: "Agiles Teammeeting der Rebellenallianz",
+        },
+      },
+      {
+        title: "HR-Probleme des Imperiums",
+        layout: "two-col",
+        bullets: [
+          "Dress Code: Nur Schwarz oder Weiß (keine Individualität)",
+          "Homeoffice: Nicht möglich (außer für Sith Lords)",
+          "Weiterbildung: »Du brauchst keine Weiterbildung. Du brauchst die Macht.«",
+          "Benefits: Kostenlose Atemmaske (nur für Vader)",
+        ],
+        type: "content",
+        chart: {
+          type: "bar",
+          title: "Mitarbeiter-Benefits: Imperium vs. Rebellen",
+          data: [
+            { name: "Homeoffice", imperium: 0, rebellen: 95 },
+            { name: "Teamgeist", imperium: 12, rebellen: 88 },
+            { name: "Überlebens-\nchance", imperium: 34, rebellen: 67 },
+            { name: "Kantine", imperium: 78, rebellen: 23 },
+          ],
+        },
+      },
+      {
+        title: "12 Parsec",
+        layout: "big-number",
+        bigNumber: "12 pc",
+        bigNumberSub: "Kessel Run in 12 Parsec – das ist agile Delivery. Das Imperium braucht dafür 20 Jahre und einen ganzen Mond.",
+        bullets: [
+          "Rebellenansatz: Schnell, iterativ, improvisiert",
+          "Imperiumsansatz: Groß, langsam, katastrophal",
+        ],
+        type: "content",
+      },
+      {
+        title: "Empfehlung für das Imperium",
+        layout: "two-col",
+        bullets: [
+          "Scrum Master statt Sith Master einstellen",
+          "Code Reviews statt Force-Choke bei Fehlern",
+          "Kleinere Iterationen: Erst Mond-Laser, dann Planet-Laser",
+          "Retrospektive: »Was lief gut? Was war die dunkle Seite?«",
+          "Möge der Sprint mit euch sein.",
+        ],
+        type: "conclusion",
+        image: {
+          url: "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=600&h=400&fit=crop",
+          caption: "Der neue agile Workspace des Imperiums (Konzept)",
+        },
+      },
+    ],
+  },
 ];
 
 export default presentations;
