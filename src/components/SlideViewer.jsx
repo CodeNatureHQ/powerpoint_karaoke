@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Timer from "./Timer";
+import MusicToggle from "./MusicToggle";
 import SlideChart from "./SlideChart";
 import slideTemplates from "../data/slideTemplates";
 
@@ -539,6 +540,7 @@ export default function SlideViewer({
           </button>
 
           <div className="flex items-center gap-3">
+            <MusicToggle mood={presentation.mood} />
             <Timer />
             <button
               onClick={onRandom}

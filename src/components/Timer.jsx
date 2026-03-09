@@ -1,16 +1,16 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
-const PRESETS = [
-  { label: "1 Min", seconds: 60 },
-  { label: "3 Min", seconds: 180 },
+const DEFAULT_PRESETS = [
   { label: "5 Min", seconds: 300 },
+  { label: "10 Min", seconds: 600 },
+  { label: "15 Min", seconds: 900 },
 ];
 
 export default function Timer() {
   const [isOpen, setIsOpen] = useState(false);
-  const [totalSeconds, setTotalSeconds] = useState(null);
   const [remaining, setRemaining] = useState(null);
   const [running, setRunning] = useState(false);
+  const [customMinutes, setCustomMinutes] = useState(7);
   const intervalRef = useRef(null);
 
   const stop = useCallback(() => {
@@ -21,14 +21,12 @@ export default function Timer() {
 
   const reset = useCallback(() => {
     stop();
-    setTotalSeconds(null);
     setRemaining(null);
   }, [stop]);
 
   const start = useCallback(
     (seconds) => {
       stop();
-      setTotalSeconds(seconds);
       setRemaining(seconds);
       setRunning(true);
     },
@@ -78,12 +76,14 @@ export default function Timer() {
       </button>
 
       {isOpen && (
-        <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-900 border border-white/20 rounded-2xl p-4 shadow-2xl min-w-48 z-50">
+        <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-900 border border-white/20 rounded-2xl p-4 shadow-2xl min-w-56 z-50">
           <p className="text-xs text-gray-400 mb-3 font-medium">
             Timer starten
           </p>
+
+          {/* Preset buttons */}
           <div className="flex gap-2 mb-3">
-            {PRESETS.map((p) => (
+            {DEFAULT_PRESETS.map((p) => (
               <button
                 key={p.seconds}
                 onClick={() => {
@@ -96,8 +96,38 @@ export default function Timer() {
               </button>
             ))}
           </div>
+
+          {/* Custom time with +/- */}
+          <div className="flex items-center gap-2 mb-3">
+            <button
+              onClick={() => setCustomMinutes((m) => Math.max(1, m - 1))}
+              className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-lg flex items-center justify-center cursor-pointer transition-colors"
+            >
+              −
+            </button>
+            <div className="flex-1 text-center text-white font-medium text-sm">
+              {customMinutes} Min
+            </div>
+            <button
+              onClick={() => setCustomMinutes((m) => Math.min(60, m + 1))}
+              className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-lg flex items-center justify-center cursor-pointer transition-colors"
+            >
+              +
+            </button>
+            <button
+              onClick={() => {
+                start(customMinutes * 60);
+                setIsOpen(false);
+              }}
+              className="px-3 py-2 text-sm rounded-lg bg-green-600/40 hover:bg-green-600/70 text-green-200 font-medium cursor-pointer transition-colors"
+            >
+              Start
+            </button>
+          </div>
+
+          {/* Pause/Reset controls when timer is active */}
           {remaining !== null && (
-            <div className="flex gap-2">
+            <div className="flex gap-2 border-t border-white/10 pt-3">
               <button
                 onClick={() => {
                   running ? stop() : setRunning(true);

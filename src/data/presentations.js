@@ -9,6 +9,7 @@ const presentations = [
     title: "Warum Tauben die wahren Manager der Innenstadt sind",
     subtitle: "Eine ornithologische Führungsanalyse",
     template: "corporate",
+    mood: "corporate",
     theme: {
       accent: "#2563eb",
       accentAlt: "#1d4ed8",
@@ -175,6 +176,7 @@ const presentations = [
     title: "Die geheime Ökonomie der Büroklammer",
     subtitle: "Warum die Büroklammer das wahre Zahlungsmittel der Zukunft ist",
     template: "sidebar",
+    mood: "bossa",
     theme: {
       accent: "#d97706",
       accentAlt: "#b45309",
@@ -351,6 +353,7 @@ const presentations = [
     title: "Kartoffeln als Zukunftstechnologie",
     subtitle: "Vom Acker ins Silicon Valley",
     template: "gradient",
+    mood: "tech",
     theme: {
       accent: "#10b981",
       accentAlt: "#059669",
@@ -520,6 +523,7 @@ const presentations = [
     title: "Synergiepotenziale im privaten Wäschemanagement",
     subtitle: "Optimierung textiler Workflows im häuslichen Umfeld",
     template: "minimal",
+    mood: "minimal",
     theme: {
       accent: "#be185d",
       accentAlt: "#9d174d",
@@ -684,6 +688,7 @@ const presentations = [
     title: "Strategische Fehler bei intergalaktischen Bewerbungsgesprächen",
     subtitle: "Wie man es in der Milchstraße NICHT macht",
     template: "dark",
+    mood: "space",
     theme: {
       accent: "#818cf8",
       accentAlt: "#6366f1",
@@ -853,6 +858,7 @@ const presentations = [
     title: "Projektmanagement auf dem Todesstern",
     subtitle: "Warum das Imperium dringend einen Scrum Master braucht",
     template: "bold-header",
+    mood: "imperial",
     theme: {
       accent: "#dc2626",
       accentAlt: "#b91c1c",
