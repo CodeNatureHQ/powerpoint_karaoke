@@ -17,25 +17,40 @@ export default function PresentationPicker({ onSelect, onBack }) {
       </div>
 
       <div className="grid gap-4">
-        {presentations.map((pres, i) => (
-          <motion.button
-            key={pres.id}
-            onClick={() => onSelect(pres)}
-            className="w-full text-left p-6 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-purple-500/50 transition-all cursor-pointer group"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.08 }}
-            whileHover={{ scale: 1.01 }}
-          >
-            <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
-              {pres.title}
-            </h3>
-            <p className="text-gray-400 mt-1">{pres.subtitle}</p>
-            <p className="text-gray-500 text-sm mt-2">
-              {pres.slides.length} Folien
-            </p>
-          </motion.button>
-        ))}
+        {presentations.map((pres, i) => {
+          const coverImage = pres.coverImage;
+          return (
+            <motion.button
+              key={pres.id}
+              onClick={() => onSelect(pres)}
+              className="w-full text-left rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-purple-500/50 transition-all cursor-pointer group overflow-hidden flex"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.08 }}
+              whileHover={{ scale: 1.01 }}
+            >
+              {coverImage && (
+                <div className="w-36 md:w-48 shrink-0">
+                  <img
+                    src={coverImage}
+                    alt={pres.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <div className="p-6 flex flex-col justify-center">
+                <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                  {pres.title}
+                </h3>
+                <p className="text-gray-400 mt-1">{pres.subtitle}</p>
+                <p className="text-gray-500 text-sm mt-2">
+                  {pres.slides.length} Folien
+                </p>
+              </div>
+            </motion.button>
+          );
+        })}
       </div>
     </div>
   );

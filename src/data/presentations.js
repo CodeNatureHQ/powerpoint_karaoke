@@ -8,6 +8,7 @@ const presentations = [
     id: 1,
     title: "Warum Tauben die wahren Manager der Innenstadt sind",
     subtitle: "Eine ornithologische Führungsanalyse",
+    coverImage: "https://images.unsplash.com/photo-1741384019035-9832956a2037?w=600&h=400&fit=crop",
     template: "corporate",
     mood: "corporate",
     theme: {
@@ -28,7 +29,7 @@ const presentations = [
         ],
         type: "agenda",
         image: {
-          url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1604082668161-d4fbd42d40cb?w=600&h=400&fit=crop",
           caption: "Typische Führungskraft (Symbolbild)",
         },
       },
@@ -43,7 +44,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1713622979401-2e253ff636d8?w=600&h=400&fit=crop",
           caption: "CEO der Innenstadtfiliale",
         },
       },
@@ -104,7 +105,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1737942301039-ddfb53a454df?w=600&h=400&fit=crop",
           caption: "Das Team bei der täglichen Retrospektive",
         },
       },
@@ -150,7 +151,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1531264993164-04a70aa46453?w=600&h=400&fit=crop",
           caption: "Internationales Tauben-Summit 2024",
         },
       },
@@ -165,7 +166,7 @@ const presentations = [
         ],
         type: "conclusion",
         image: {
-          url: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1758963335844-28fc0701aab8?w=600&h=400&fit=crop",
           caption: "Zukünftiger Firmensitz der Tauben AG",
         },
       },
@@ -175,6 +176,7 @@ const presentations = [
     id: 2,
     title: "Die geheime Ökonomie der Büroklammer",
     subtitle: "Warum die Büroklammer das wahre Zahlungsmittel der Zukunft ist",
+    coverImage: "https://images.unsplash.com/photo-1512278753435-c834ff8a597a?w=600&h=400&fit=crop",
     template: "sidebar",
     mood: "bossa",
     theme: {
@@ -272,7 +274,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1531347334762-59780ece5c76?w=600&h=400&fit=crop",
           caption: "Büroklammer-Kunst: Emotionale Verarbeitung des Q3-Reports",
         },
       },
@@ -307,7 +309,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1516134162643-d3a8f6ef0623?w=600&h=400&fit=crop",
           caption: "Diversifiziertes Büroklammer-Portfolio",
         },
       },
@@ -342,7 +344,7 @@ const presentations = [
         ],
         type: "conclusion",
         image: {
-          url: "https://images.unsplash.com/photo-1518458028785-8b391e76d42e?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1562217180-021f74991332?w=600&h=400&fit=crop",
           caption: "Unser Versprechen: Rendite in Klammerform",
         },
       },
@@ -352,6 +354,7 @@ const presentations = [
     id: 3,
     title: "Kartoffeln als Zukunftstechnologie",
     subtitle: "Vom Acker ins Silicon Valley",
+    coverImage: "https://images.unsplash.com/photo-1651248341193-a4035e081fbc?w=600&h=400&fit=crop",
     template: "gradient",
     mood: "tech",
     theme: {
@@ -370,7 +373,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1659738538929-715b764d59f9?w=600&h=400&fit=crop",
           caption: "Kartoffel-basiertes Rechenzentrum (Prototyp)",
         },
       },
@@ -415,7 +418,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1644439017477-befade11bd83?w=600&h=400&fit=crop",
           caption: "Die KI wird mit Premium-Kartoffeln trainiert",
         },
       },
@@ -476,7 +479,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1457364559154-aa2644600ebb?w=600&h=400&fit=crop",
           caption: "SpudX-1 beim Start (Künstlerische Darstellung)",
         },
       },
@@ -512,7 +515,7 @@ const presentations = [
         ],
         type: "conclusion",
         image: {
-          url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1764866557879-059e1db80a50?w=600&h=400&fit=crop",
           caption: "Hauptquartier der Kartoffel AG (Vision 2030)",
         },
       },
@@ -522,6 +525,7 @@ const presentations = [
     id: 4,
     title: "Synergiepotenziale im privaten Wäschemanagement",
     subtitle: "Optimierung textiler Workflows im häuslichen Umfeld",
+    coverImage: "https://images.unsplash.com/photo-1752805869096-9b149e6effa1?w=600&h=400&fit=crop",
     template: "minimal",
     mood: "minimal",
     theme: {
@@ -570,7 +574,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1755657722450-26f64fbcddbd?w=600&h=400&fit=crop",
           caption: "Datenanalyse des Wäscheprozesses (Real-Time Dashboard)",
         },
       },
@@ -611,7 +615,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=600&h=400&fit=crop",
           caption: "Kanban-Board für textile Prozessoptimierung",
         },
       },
@@ -677,7 +681,7 @@ const presentations = [
         ],
         type: "conclusion",
         image: {
-          url: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1746557416454-00c814b84318?w=600&h=400&fit=crop",
           caption: "Der Weg zur textilen Erleuchtung",
         },
       },
@@ -687,6 +691,7 @@ const presentations = [
     id: 5,
     title: "Strategische Fehler bei intergalaktischen Bewerbungsgesprächen",
     subtitle: "Wie man es in der Milchstraße NICHT macht",
+    coverImage: "https://images.unsplash.com/photo-1528722828814-77b9b83aafb2?w=600&h=400&fit=crop",
     template: "dark",
     mood: "space",
     theme: {
@@ -717,7 +722,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1531746790095-e5995eb25e03?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1745847768380-2caeadbb3b71?w=600&h=400&fit=crop",
           caption: "Korrekte Begrüßungstechnik (Spezies 47-B)",
         },
       },
@@ -751,7 +756,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1450101499163-c8848e968ab7?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1756747646179-d5652667914e?w=600&h=400&fit=crop",
           caption: "Lebenslauf-Prüfung durch die Galaktische Personalabteilung",
         },
       },
@@ -813,7 +818,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1634176866089-b633f4aec882?w=600&h=400&fit=crop",
           caption: "Vorbereitung auf das Interview (Planeten-Recherche)",
         },
       },
@@ -847,7 +852,7 @@ const presentations = [
         ],
         type: "conclusion",
         image: {
-          url: "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1742626157111-59f3f1019a8a?w=600&h=400&fit=crop",
           caption: "Viel Erfolg da draußen!",
         },
       },
@@ -857,6 +862,7 @@ const presentations = [
     id: 6,
     title: "Projektmanagement auf dem Todesstern",
     subtitle: "Warum das Imperium dringend einen Scrum Master braucht",
+    coverImage: "https://images.unsplash.com/photo-1730855793881-a61bc8fb54d6?w=600&h=400&fit=crop",
     template: "bold-header",
     mood: "imperial",
     theme: {
@@ -912,7 +918,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1757271453507-bbee317318a8?w=600&h=400&fit=crop",
           caption: "Sicherheitsanalyse des Lüftungsschachts (Querschnitt)",
         },
       },
@@ -969,7 +975,7 @@ const presentations = [
         ],
         type: "content",
         image: {
-          url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1758873269035-aae0e1fd3422?w=600&h=400&fit=crop",
           caption: "Agiles Teammeeting der Rebellenallianz",
         },
       },
@@ -1017,7 +1023,7 @@ const presentations = [
         ],
         type: "conclusion",
         image: {
-          url: "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=600&h=400&fit=crop",
+          url: "https://images.unsplash.com/photo-1758691737060-3814f16d5aba?w=600&h=400&fit=crop",
           caption: "Der neue agile Workspace des Imperiums (Konzept)",
         },
       },

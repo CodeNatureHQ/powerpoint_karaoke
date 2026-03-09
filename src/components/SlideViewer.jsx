@@ -151,7 +151,7 @@ function ImageFullLayout({ slide, theme, tpl }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/20" />
         </div>
       )}
-      <div className="relative flex-1 flex flex-col justify-end p-8 md:p-14">
+      <div className="relative flex-1 flex flex-col justify-end px-10 py-8 md:px-20 md:py-14">
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

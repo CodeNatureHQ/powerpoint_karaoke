@@ -10,7 +10,23 @@
       "Bash(timeout 5 npx vite --host)",
       "Bash(npm install recharts)",
       "Bash(npm install -D gh-pages)",
-      "Bash(git -C /Users/rmaas/Development/Personal/powerpoint_karaoke status)"
+      "Bash(git -C /Users/rmaas/Development/Personal/powerpoint_karaoke status)",
+      "WebSearch",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(curl -sI \"https://images.unsplash.com/photo-1555169062-013468b47731?w=600&h=400&fit=crop\")",
+      "Bash(curl -sI \"https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&h=400&fit=crop\")",
+      "Read(//tmp/**)",
+      "Read(//private/tmp/**)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1523362628745-0c100150b504?w=200&h=150&fit=crop\" -o pigeon2.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=200&h=150&fit=crop\" -o clips2.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1518977676601-b53f82abb1ce?w=200&h=150&fit=crop\" -o potato2.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1508302730006-ea4f8dbef143?w=200&h=150&fit=crop\" -o potato3.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=200&h=150&fit=crop\" -o potato4.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1472457897821-70d77057d4b4?w=200&h=150&fit=crop\" -o pigeon3.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1608346128025-1896b97a6fa7?w=200&h=150&fit=crop\" -o vader2.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1587825140708-dfaf18c4f8f2?w=200&h=150&fit=crop\" -o clips3.jpg)",
+      "Bash(curl -sL \"https://unsplash.com/photos/a-detailed-close-up-of-a-pigeon-xWzGuY_hlzQ\")",
+      "Bash(curl -sL \"https://unsplash.com/photos/SLh03kuAr50\")"
     ],
     "additionalDirectories": [
       "/Users/rmaas/Development/Personal/powerpoint_karaoke/powerpoint-karaoke"
