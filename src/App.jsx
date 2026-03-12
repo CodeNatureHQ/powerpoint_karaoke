@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import StartScreen from "./components/StartScreen";
 import PresentationPicker from "./components/PresentationPicker";
 import SlideViewer from "./components/SlideViewer";
+import GenerateScreen from "./components/GenerateScreen";
 import { supabase } from "./lib/supabase";
 
 function getRandomPresentation(presentations, exclude) {
@@ -12,7 +13,7 @@ function getRandomPresentation(presentations, exclude) {
 }
 
 export default function App() {
-  const [screen, setScreen] = useState("start"); // start | pick | present
+  const [screen, setScreen] = useState("start"); // start | pick | generate | present
   const [presentations, setPresentations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [presentation, setPresentation] = useState(null);
@@ -27,7 +28,6 @@ export default function App() {
       .select("*")
       .order("id")
       .then(({ data }) => {
-        // Map snake_case DB column back to camelCase for the rest of the app
         const mapped = (data ?? []).map((p) => ({
           ...p,
           coverImage: p.cover_image,
@@ -48,8 +48,17 @@ export default function App() {
     startPresentation(getRandomPresentation(presentations, presentation));
   }, [presentations, presentation, startPresentation]);
 
+  const handleGenerated = useCallback(
+    (newPres) => {
+      // Add to local list so it appears in the picker
+      setPresentations((prev) => [...prev, newPres]);
+      // Start immediately
+      startPresentation(newPres);
+    },
+    [startPresentation],
+  );
+
   const goNext = useCallback(() => {
-    // total = slides.length + 1 (title slide at index 0)
     if (presentation && slideIndex < presentation.slides.length) {
       setDirection(1);
       setSlideIndex((i) => i + 1);
@@ -89,6 +98,7 @@ export default function App() {
         <StartScreen
           onStart={() => setScreen("pick")}
           onRandom={startRandom}
+          onGenerate={() => setScreen("generate")}
           loading={loading}
         />
       )}
@@ -97,6 +107,13 @@ export default function App() {
         <PresentationPicker
           presentations={presentations}
           onSelect={startPresentation}
+          onBack={() => setScreen("start")}
+        />
+      )}
+
+      {screen === "generate" && (
+        <GenerateScreen
+          onGenerated={handleGenerated}
           onBack={() => setScreen("start")}
         />
       )}

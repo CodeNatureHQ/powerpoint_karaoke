@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function StartScreen({ onStart, onRandom, loading }) {
+export default function StartScreen({ onStart, onRandom, onGenerate, loading }) {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
       <motion.div
