@@ -26,7 +26,11 @@
       "Bash(curl -sL \"https://images.unsplash.com/photo-1608346128025-1896b97a6fa7?w=200&h=150&fit=crop\" -o vader2.jpg)",
       "Bash(curl -sL \"https://images.unsplash.com/photo-1587825140708-dfaf18c4f8f2?w=200&h=150&fit=crop\" -o clips3.jpg)",
       "Bash(curl -sL \"https://unsplash.com/photos/a-detailed-close-up-of-a-pigeon-xWzGuY_hlzQ\")",
-      "Bash(curl -sL \"https://unsplash.com/photos/SLh03kuAr50\")"
+      "Bash(curl -sL \"https://unsplash.com/photos/SLh03kuAr50\")",
+      "mcp__plugin_supabase_supabase__list_tables",
+      "mcp__plugin_supabase_supabase__list_migrations",
+      "mcp__plugin_supabase_supabase__get_project_url",
+      "mcp__plugin_supabase_supabase__execute_sql"
     ],
     "additionalDirectories": [
       "/Users/rmaas/Development/Personal/powerpoint_karaoke/powerpoint-karaoke"

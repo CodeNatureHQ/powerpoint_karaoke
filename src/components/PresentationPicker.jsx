@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import presentations from "../data/presentations";
 
-export default function PresentationPicker({ onSelect, onBack }) {
+export default function PresentationPicker({ presentations, onSelect, onBack }) {
   return (
     <div className="min-h-screen px-4 py-12 max-w-4xl mx-auto">
       <div className="flex items-center justify-between mb-8">

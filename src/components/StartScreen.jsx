@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function StartScreen({ onStart, onRandom }) {
+export default function StartScreen({ onStart, onRandom, loading }) {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
       <motion.div
@@ -30,16 +30,18 @@ export default function StartScreen({ onStart, onRandom }) {
       >
         <button
           onClick={onRandom}
-          className="px-8 py-4 text-lg font-bold rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white shadow-lg shadow-purple-500/30 transition-all duration-200 hover:scale-105 cursor-pointer"
+          disabled={loading}
+          className="px-8 py-4 text-lg font-bold rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white shadow-lg shadow-purple-500/30 transition-all duration-200 hover:scale-105 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
-          Zufällige Präsentation starten
+          {loading ? "Laden…" : "Zufällige Präsentation starten"}
         </button>
 
         <button
           onClick={onStart}
-          className="px-8 py-4 text-lg font-bold rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all duration-200 hover:scale-105 cursor-pointer"
+          disabled={loading}
+          className="px-8 py-4 text-lg font-bold rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all duration-200 hover:scale-105 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
-          Präsentation wählen
+          {loading ? "Laden…" : "Präsentation wählen"}
         </button>
       </motion.div>
 
