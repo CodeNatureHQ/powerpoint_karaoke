@@ -1,16 +1,152 @@
-# React + Vite
+# PowerPoint Karaoke
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Eine Web-App für PowerPoint Karaoke: Du bekommst eine zufällige Präsentation und musst spontan vortragen – ohne Vorbereitung.
 
-Currently, two official plugins are available:
+**Live:** https://powerpoint-karaoke-tau.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Schicht     | Technologie           |
+| ----------- | --------------------- |
+| Frontend    | React 19, Vite 7      |
+| Styling     | Tailwind CSS 4        |
+| Animationen | Framer Motion         |
+| Charts      | Recharts              |
+| Backend/DB  | Supabase (PostgreSQL) |
+| Deployment  | Vercel                |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Architektur
+
+### Frontend (`src/`)
+
+Die App ist eine Single-Page-Application ohne Router. Die Navigation läuft über einen `screen`-State in `App.jsx`:
+
+```
+start → pick → present
+           ↘ generate → present
+```
+
+**Screens:**
+
+| Datei                               | Screen     | Beschreibung                 |
+| ----------------------------------- | ---------- | ---------------------------- |
+| `components/StartScreen.jsx`        | `start`    | Startseite mit drei Aktionen |
+| `components/PresentationPicker.jsx` | `pick`     | Liste aller Präsentationen   |
+| `components/GenerateScreen.jsx`     | `generate` | KI-Generierung (zwei Modi)   |
+| `components/SlideViewer.jsx`        | `present`  | Folienpräsentation           |
+
+**Hilfkomponenten:**
+
+| Datei                        | Beschreibung                                    |
+| ---------------------------- | ----------------------------------------------- |
+| `components/SlideChart.jsx`  | Recharts-Wrapper für Bar-, Line- und Pie-Charts |
+| `components/Timer.jsx`       | Countdown-Timer während der Präsentation        |
+| `components/MusicToggle.jsx` | Hintergrundmusik je nach Präsentations-Mood     |
+
+**Daten:**
+
+| Datei                    | Beschreibung                                                                    |
+| ------------------------ | ------------------------------------------------------------------------------- |
+| `data/slideTemplates.js` | 6 visuelle Templates (corporate, dark, sidebar, gradient, minimal, bold-header) |
+| `lib/supabase.js`        | Supabase-Client-Singleton                                                       |
+
+---
+
+### Slide-System
+
+Jede Präsentation besteht aus einem Titelslide (aus `title`/`subtitle` der Präsentation) plus einem Array von Content-Slides (`slides[]`).
+
+**Verfügbare Layouts:**
+
+| Layout        | Felder                                                                | Beschreibung                        |
+| ------------- | --------------------------------------------------------------------- | ----------------------------------- |
+| `two-col`     | `title`, `bullets[]`, optional `image` oder `chart`                   | Standard: Text links, Visual rechts |
+| `image-full`  | `title`, `bullets[]`, `image`                                         | Vollbild-Bild mit Text-Overlay      |
+| `big-number`  | `bigNumber`, `bigNumberSub`, `bullets[]`                              | Große Zahl als Eyecatcher           |
+| `chart-focus` | `title`, `chart`, optional `bullets[]`                                | Chart als Hauptelement              |
+| `quote`       | `title` (Zitat), `subtitle` (Quelle)                                  | Großes Zitat zentriert              |
+| `section`     | `title`, `subtitle`                                                   | Kapiteltrennfolie                   |
+| `comparison`  | `title`, `leftTitle`, `leftBullets[]`, `rightTitle`, `rightBullets[]` | A vs. B Vergleich                   |
+| `timeline`    | `title`, `events[{label, text}]`                                      | Vertikale Zeitleiste                |
+| `icon-grid`   | `title`, `items[{icon, title, text}]`                                 | 2×2 Raster mit Emoji                |
+
+**Visuelle Templates** (`template`-Feld der Präsentation):
+
+`corporate` · `dark` · `sidebar` · `gradient` · `minimal` · `bold-header`
+
+**Musik-Moods** (`mood`-Feld der Präsentation):
+
+`corporate` · `bossa` · `tech` · `minimal` · `space` · `imperial`
+
+---
+
+### Datenbank (Supabase)
+
+Tabelle `presentations`:
+
+```sql
+id          INTEGER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY
+title       TEXT NOT NULL
+subtitle    TEXT
+cover_image TEXT
+template    TEXT NOT NULL   -- eines der 6 Templates
+mood        TEXT NOT NULL   -- eines der 6 Moods
+theme       JSONB           -- { accent, accentAlt, gradient }
+slides      JSONB           -- Array von Slide-Objekten (polymorph)
+created_at  TIMESTAMPTZ
+updated_at  TIMESTAMPTZ
+```
+
+RLS: öffentlich lesbar, kein Schreiben ohne Auth.
+
+---
+
+### KI-Generierung (Supabase Edge Function)
+
+Die Edge Function `generate-presentation` läuft auf Deno und wird über `supabase.functions.invoke()` aufgerufen.
+
+**Modi:**
+
+- `title` – Benutzer gibt ein Thema vor
+- `random` – Vollständig zufälliges Thema
+
+**Ablauf:**
+
+1. Browser ruft Edge Function mit `{ mode, title }` auf
+2. Edge Function baut einen deutschen System-Prompt mit JSON-Schema
+3. Claude (`claude-opus-4-6`) generiert die Präsentation als JSON
+4. Edge Function speichert das Ergebnis in die DB (mit Service-Role-Key)
+5. Eingefügte Zeile wird an den Browser zurückgegeben
+6. Präsentation startet sofort
+
+**Benötigte Secrets:**
+
+- `ANTHROPIC_API_KEY` – in Supabase Secrets hinterlegen
+
+---
+
+## Lokale Entwicklung
+
+```bash
+npm install
+npm run dev
+```
+
+`.env.local` wird benötigt:
+
+```
+VITE_SUPABASE_URL=https://wpaupcpfrcfuqhnjlzdb.supabase.co
+VITE_SUPABASE_ANON_KEY=<anon key>
+```
+
+## Deployment
+
+```bash
+vercel --prod
+```
+
+Env-Variablen `VITE_SUPABASE_URL` und `VITE_SUPABASE_ANON_KEY` sind im Vercel-Projekt hinterlegt.
