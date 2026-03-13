@@ -278,6 +278,128 @@ function QuoteLayout({ slide, theme, tpl }) {
   );
 }
 
+// Layout: Comparison — two columns side by side (A vs B)
+function ComparisonLayout({ slide, theme, tpl }) {
+  return (
+    <>
+      <h3 className={`text-2xl md:text-4xl font-bold ${tpl.titleColor} mb-6 text-center`}>
+        {slide.title}
+      </h3>
+      <div className="grid grid-cols-2 gap-4 md:gap-8">
+        {[
+          { title: slide.leftTitle, bullets: slide.leftBullets, side: "left" },
+          { title: slide.rightTitle, bullets: slide.rightBullets, side: "right" },
+        ].map(({ title, bullets, side }, colIdx) => (
+          <motion.div
+            key={side}
+            initial={{ opacity: 0, x: colIdx === 0 ? -30 : 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 + colIdx * 0.15 }}
+            className="rounded-xl p-4 md:p-6"
+            style={{
+              backgroundColor:
+                colIdx === 0
+                  ? `${theme.accent}22`
+                  : `${theme.accentAlt ?? theme.accent}22`,
+              borderTop: `3px solid ${colIdx === 0 ? theme.accent : (theme.accentAlt ?? theme.accent)}`,
+            }}
+          >
+            <h4
+              className="text-base md:text-lg font-bold mb-3"
+              style={{ color: colIdx === 0 ? theme.accent : (theme.accentAlt ?? theme.accent) }}
+            >
+              {title}
+            </h4>
+            {bullets && (
+              <BulletList
+                bullets={bullets}
+                accentColor={colIdx === 0 ? theme.accent : (theme.accentAlt ?? theme.accent)}
+                tpl={tpl}
+                delay={0.2 + colIdx * 0.1}
+              />
+            )}
+          </motion.div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+// Layout: Timeline — vertical list of labelled events
+function TimelineLayout({ slide, theme, tpl }) {
+  return (
+    <>
+      <h3 className={`text-2xl md:text-4xl font-bold ${tpl.titleColor} mb-8`}>
+        {slide.title}
+      </h3>
+      <div className="relative pl-8 space-y-5">
+        {/* vertical line */}
+        <div
+          className="absolute top-2 bottom-2 left-2.5 w-0.5 rounded-full"
+          style={{ backgroundColor: `${theme.accent}50` }}
+        />
+        {(slide.events ?? []).map((event, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 + i * 0.12 }}
+            className="relative flex gap-4 items-start"
+          >
+            {/* dot */}
+            <div
+              className="absolute -left-8 mt-1 w-5 h-5 rounded-full border-2 border-white flex items-center justify-center shrink-0"
+              style={{ backgroundColor: theme.accent }}
+            >
+              <span className="text-white text-xs font-bold">{i + 1}</span>
+            </div>
+            <div>
+              <span
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: theme.accent }}
+              >
+                {event.label}
+              </span>
+              <p className={`text-base md:text-lg ${tpl.textColor} mt-0.5`}>{event.text}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+// Layout: Icon grid — 2×2 (or more) grid of emoji + title + text
+function IconGridLayout({ slide, theme, tpl }) {
+  return (
+    <>
+      <h3 className={`text-2xl md:text-4xl font-bold ${tpl.titleColor} mb-6`}>
+        {slide.title}
+      </h3>
+      <div className="grid grid-cols-2 gap-4 md:gap-6">
+        {(slide.items ?? []).map((item, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 + i * 0.1 }}
+            className={`rounded-xl p-4 md:p-5 ${tpl.chartBg}`}
+          >
+            <div className="text-3xl md:text-4xl mb-2">{item.icon}</div>
+            <h4
+              className="text-sm md:text-base font-bold mb-1"
+              style={{ color: theme.accent }}
+            >
+              {item.title}
+            </h4>
+            <p className={`text-sm md:text-base ${tpl.textColor}`}>{item.text}</p>
+          </motion.div>
+        ))}
+      </div>
+    </>
+  );
+}
+
 // Section divider
 function SectionLayout({ slide, theme, tpl }) {
   return (
@@ -317,6 +439,12 @@ function SlideContent({ slide, theme, tpl }) {
       return <QuoteLayout slide={slide} theme={theme} tpl={tpl} />;
     case "section":
       return <SectionLayout slide={slide} theme={theme} tpl={tpl} />;
+    case "comparison":
+      return <ComparisonLayout slide={slide} theme={theme} tpl={tpl} />;
+    case "timeline":
+      return <TimelineLayout slide={slide} theme={theme} tpl={tpl} />;
+    case "icon-grid":
+      return <IconGridLayout slide={slide} theme={theme} tpl={tpl} />;
     default:
       return <TwoColLayout slide={slide} theme={theme} tpl={tpl} />;
   }
