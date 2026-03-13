@@ -21,6 +21,7 @@ const slideVariants = {
 
 // Renders bullet list styled by template
 function BulletList({ bullets, accentColor, tpl, delay = 0.15 }) {
+  if (!bullets?.length) return null;
   return (
     <ul className="space-y-2 md:space-y-3">
       {bullets.map((bullet, i) => (

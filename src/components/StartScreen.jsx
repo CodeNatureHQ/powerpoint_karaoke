@@ -43,6 +43,14 @@ export default function StartScreen({ onStart, onRandom, onGenerate, loading }) 
         >
           {loading ? "Laden…" : "Präsentation wählen"}
         </button>
+
+        <button
+          onClick={onGenerate}
+          disabled={loading}
+          className="px-8 py-4 text-lg font-bold rounded-2xl bg-linear-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg shadow-emerald-500/30 transition-all duration-200 hover:scale-105 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+        >
+          {loading ? "Laden…" : "✨ KI-Präsentation generieren"}
+        </button>
       </motion.div>
 
       <motion.div
