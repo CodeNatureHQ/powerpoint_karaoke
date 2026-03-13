@@ -5,9 +5,9 @@ const slideTemplates = {
   // Template 1: Classic corporate — white slides, colored top bar, clean sans-serif
   "corporate": {
     slideBg: "bg-white",
-    slideShadow: "shadow-2xl",
-    slideBorder: "",
-    slideRounded: "rounded-sm",
+    slideShadow: "shadow-md",
+    slideBorder: "border border-gray-200",
+    slideRounded: "rounded",
     accentPosition: "top", // colored bar at top
     accentHeight: "h-2",
     // Text
@@ -38,10 +38,10 @@ const slideTemplates = {
 
   // Template 2: Dark premium — dark slides, subtle gradients, light text
   "dark": {
-    slideBg: "bg-gradient-to-br from-gray-900 to-gray-800",
-    slideShadow: "shadow-2xl",
+    slideBg: "bg-slate-800",
+    slideShadow: "shadow-lg",
     slideBorder: "border border-white/10",
-    slideRounded: "rounded-3xl",
+    slideRounded: "rounded",
     accentPosition: "bottom",
     accentHeight: "h-1",
     titleColor: "text-white",
@@ -67,11 +67,11 @@ const slideTemplates = {
   // Template 3: Sidebar accent — white slide with colored left sidebar stripe
   "sidebar": {
     slideBg: "bg-white",
-    slideShadow: "shadow-xl",
-    slideBorder: "",
-    slideRounded: "rounded-lg",
-    accentPosition: "left", // thick left bar
-    accentHeight: "w-3",
+    slideShadow: "shadow-sm",
+    slideBorder: "border border-gray-200",
+    slideRounded: "rounded-sm",
+    accentPosition: "left",
+    accentHeight: "w-1.5",
     titleColor: "text-gray-900",
     textColor: "text-gray-700",
     subtextColor: "text-gray-500",
@@ -95,9 +95,9 @@ const slideTemplates = {
   // Template 4: Gradient hero — colored gradient background, white text
   "gradient": {
     slideBg: null, // uses dynamic gradient from theme
-    slideShadow: "shadow-2xl",
+    slideShadow: "shadow-lg",
     slideBorder: "",
-    slideRounded: "rounded-2xl",
+    slideRounded: "rounded",
     accentPosition: "none",
     accentHeight: "",
     titleColor: "text-white",
@@ -151,9 +151,9 @@ const slideTemplates = {
   // Template 6: Bold header — large colored header block, white body
   "bold-header": {
     slideBg: "bg-white",
-    slideShadow: "shadow-xl",
-    slideBorder: "",
-    slideRounded: "rounded-lg",
+    slideShadow: "shadow-sm",
+    slideBorder: "border border-gray-200",
+    slideRounded: "rounded",
     accentPosition: "header", // title gets a colored background block
     accentHeight: "",
     titleColor: "text-white", // title is white on colored bg

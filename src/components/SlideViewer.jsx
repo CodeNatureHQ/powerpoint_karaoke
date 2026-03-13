@@ -22,7 +22,7 @@ const slideVariants = {
 // Renders bullet list styled by template
 function BulletList({ bullets, accentColor, tpl, delay = 0.15 }) {
   return (
-    <ul className="space-y-3 md:space-y-4">
+    <ul className="space-y-2 md:space-y-3">
       {bullets.map((bullet, i) => (
         <motion.li
           key={i}
@@ -66,15 +66,14 @@ function BulletMarker({ style, index, accentColor }) {
     case "arrow":
       return (
         <span className="mt-0.5 font-bold shrink-0" style={{ color: accentColor }}>
-          ›
+          →
         </span>
       );
     default:
       return (
-        <span
-          className="mt-2 w-2 h-2 rounded-full shrink-0"
-          style={{ backgroundColor: accentColor }}
-        />
+        <span className="mt-0.5 font-bold shrink-0" style={{ color: accentColor }}>
+          •
+        </span>
       );
   }
 }
@@ -383,7 +382,7 @@ function IconGridLayout({ slide, theme, tpl }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 + i * 0.1 }}
-            className={`rounded-xl p-4 md:p-5 ${tpl.chartBg}`}
+            className={`rounded p-3 md:p-4 ${tpl.chartBg}`}
           >
             <div className="text-3xl md:text-4xl mb-2">{item.icon}</div>
             <h4
@@ -453,10 +452,10 @@ function SlideContent({ slide, theme, tpl }) {
 // Build slide card classes/styles based on template
 function getSlideCardProps(tpl, theme, isTitleSlide, isImageFull, gradient) {
   const classes = [
-    "w-full max-w-6xl min-h-[70vh] flex flex-col justify-center",
+    "w-full max-w-6xl min-h-[65vh] flex flex-col justify-center",
     tpl.slideShadow,
     tpl.slideRounded,
-    isImageFull ? "overflow-hidden" : "p-8 md:p-14",
+    isImageFull ? "overflow-hidden" : "p-6 md:p-10",
   ];
   const style = {};
 
@@ -592,20 +591,14 @@ export default function SlideViewer({
             {/* Title Slide */}
             {isTitleSlide && (
               <div className="text-center">
-                <motion.div
-                  initial={{ opacity: 0, scaleX: 0 }}
-                  animate={{ opacity: 1, scaleX: 1 }}
-                  transition={{ delay: 0.05 }}
-                  className="w-24 h-1 mx-auto mb-8"
-                  style={{ backgroundColor: titleTextWhite ? "rgba(255,255,255,0.5)" : theme.accent }}
-                />
                 <motion.h2
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className={`text-4xl md:text-6xl font-bold mb-4 leading-tight ${
+                  className={`text-4xl md:text-6xl font-bold mb-3 leading-tight pb-4 ${
                     titleTextWhite ? "text-white" : tpl.titleColor
                   }`}
+                  style={{ borderBottom: `3px solid ${titleTextWhite ? "rgba(255,255,255,0.4)" : theme.accent}` }}
                 >
                   {presentation.title}
                 </motion.h2>
